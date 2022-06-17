@@ -5,9 +5,8 @@ import '../App.css';
 
 import ItemCounter from './ItemCounter';
 
-
 function ItemDetailContainer(props) {
-    const {nroIdiPhone} = useParams();   // Obtengo el Id que se lee desde el Link de RouterDom, al la hora de hacer click en el componente Card
+    const {nroIdiPhone} = useParams(); // Obtengo el Id que se lee desde el Link de RouterDom, al la hora de hacer click en el componente Card
     const filterById = props.phoneModel.find(modelId => modelId.id === parseInt(nroIdiPhone))  // Con el Metodo Find, extraigo un objeto de la lista que vino por props y obtengo el que tenga el id que vino por Params 
     return (
         <div className="container">

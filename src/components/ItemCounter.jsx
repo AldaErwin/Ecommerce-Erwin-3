@@ -10,7 +10,7 @@ import { HiOutlineShoppingCart } from 'react-icons/hi';
 
 function ItemCounter(props) {
     
-    const [itemCount, setItemCount] = useState(0);        // Estado inicial del Contador
+    const [itemCount, setItemCount] = useState(0);      // Estado inicial del Contador
     const [itemInChart, setItemInChart] = useState(0);  
     const [itemId, setitemId] = useState(props.item);   // Id del item que se esta mostrando
 

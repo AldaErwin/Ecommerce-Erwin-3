@@ -2,7 +2,6 @@
     display: block;
     transition: transform .4s;   /* smoother zoom */
 }
-
 .cardImage:hover{
     -moz-transform: scale(1.1);
     -webkit-transform: scale(1.1);

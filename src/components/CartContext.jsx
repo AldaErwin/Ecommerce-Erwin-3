@@ -9,7 +9,7 @@ const CartContextProvider = ({children}) => {
 
     const addToCart = (item, cantItem) => {
         setCartList([
-            ...cartList,                    // Sin el Spread Operator, el array se sobreescribe cada vez que llegan datos
+            ...cartList,                // Sin el Spread Operator, el array se sobreescribe cada vez que llegan datos
             {
                 item:item.id,
                 name:item.iPhoneModel,

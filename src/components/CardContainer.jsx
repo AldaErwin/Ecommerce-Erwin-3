@@ -8,15 +8,15 @@ import Cards from './Cards'
 //  Se dibujan los datos en CardConteiner por eso (se solicitan Cards)
 
 function CardContainer(props) {
-    const {nroModeloiPhone} = useParams("");   // Hook de Router Dom con el id de la linea 30 de App.js
+    const {nroModeloiPhone} = useParams("");  
     const [productos,setProductos] = useState(props.products);
 
     
     useEffect(() => {
 
         if(nroModeloiPhone !== undefined){
-            const filterByName = props.products.filter(function (product) { //  Al utilizar el Hook de Router Dom, se necesita un if para verificar se ese "nroModeloiPhone" es undefined
-                return product.iPhoneModel === nroModeloiPhone               // porque sino, no se dibujaria nada en el Home ni en ninguna ruta que sea diferente a undefined
+            const filterByName = props.products.filter(function (product) { 
+                return product.iPhoneModel === nroModeloiPhone              
                 console.log(nroModeloiPhone)
             })
             setProductos(filterByName);

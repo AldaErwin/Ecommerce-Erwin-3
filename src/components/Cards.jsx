@@ -2,7 +2,7 @@ import React from 'react';
 
 import Card from './Card'
 
-//  Las Cards no son mas que un conjunto de Card individuales
+
 
 function Cards(props) {
     return (

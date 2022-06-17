@@ -9,7 +9,6 @@ import Chart from './components/Chart'
 import CartContextProvider from './components/CartContext'
 
 
-
 function App() {
     const [data, setData] = useState([]);
 

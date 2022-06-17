@@ -97,5 +97,14 @@ export const data = [
         "storage":"512GB",
         "image":"https://m.media-amazon.com/images/I/71cSV-RTBSL._FMwebp__.jpg",
         "stock":10
+    },
+    {
+        "id":11,
+        "iPhoneModel":"12 Pro",
+        "price":1438,
+        "color": "Oro",
+        "storage":"512GB",
+        "image":"https://m.media-amazon.com/images/I/71cSV-RTBSL._FMwebp__.jpg",
+        "stock":10
     }
 ]

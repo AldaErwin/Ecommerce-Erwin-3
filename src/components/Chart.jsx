@@ -15,7 +15,7 @@ function Chart() {
     }
 
     return (
-        test.cartList.length > 0                     // Operador Ternario para saber si llegan los datos y que estos aparezcan o de lo contrario se dibuje un <p>
+        test.cartList.length > 0       // Operador Ternario para saber si llegan los datos y que estos aparezcan o de lo contrario se dibuje un <p>
             ?
         
             test.cartList.map((item, index) =>

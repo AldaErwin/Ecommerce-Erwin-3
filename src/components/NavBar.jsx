@@ -4,7 +4,6 @@ import { Nav, Navbar, NavDropdown, Container} from 'react-bootstrap';
 
 import { BsCart3 } from 'react-icons/bs';
 
-
 function NavBar() {
     return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
