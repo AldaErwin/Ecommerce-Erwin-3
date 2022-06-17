@@ -1,0 +1,34 @@
+.cardImage{
+    display: block;
+    transition: transform .4s;   /* smoother zoom */
+}
+
+.cardImage:hover{
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.botonCarrito{
+    border-radius: 20px;
+}
+.botonDecrementar{
+    border-radius: 20px 0px 0px 20px;
+}
+
+.botonIncrementar{
+    border-radius:  0px 20px 20px 0px;
+}
+
+span{
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+button{
+    outline: none;
+    border: none;
+}
