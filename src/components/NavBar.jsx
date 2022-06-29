@@ -8,7 +8,7 @@ function NavBar() {
     return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand as={Link} to={"/"} >eCommerce</Navbar.Brand>
+                <Navbar.Brand as={Link} to={"/"} >eCommerce 📱</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
@@ -29,10 +29,8 @@ function NavBar() {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="">Log In</Nav.Link>
-                        <Nav.Link  as={Link} to={"/Chart"}><BsCart3/></Nav.Link>
-                        <Nav.Link eventKey={2} href="">
-                        </Nav.Link>
+                        <Nav.Link href="" className='logIn'>Log In</Nav.Link>
+                        <Nav.Link  as={Link} to={"/Chart"}><BsCart3 size={"2em"}/></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

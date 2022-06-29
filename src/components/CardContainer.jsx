@@ -17,7 +17,6 @@ function CardContainer(props) {
         if(nroModeloiPhone !== undefined){
             const filterByName = props.products.filter(function (product) { 
                 return product.iPhoneModel === nroModeloiPhone              
-                console.log(nroModeloiPhone)
             })
             setProductos(filterByName);
         } else{

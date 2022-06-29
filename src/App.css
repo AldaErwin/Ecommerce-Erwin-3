@@ -31,3 +31,16 @@ button{
     outline: none;
     border: none;
 }
+
+.logIn {
+    align-self: center;
+    margin-right: 1.5em;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.table > tbody > tr > td > #basura {
+    vertical-align: middle;
+}

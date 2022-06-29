@@ -1,8 +1,9 @@
 import { React, useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import '../App.css';
-
-import {CartContext} from './CartContext'
+import { toast } from 'react-toastify';
+import {CartContext} from '../context/CartContext'
+import swal from 'sweetalert';
 
 //  Eliminado GrFormTrash
 import { GrFormSubtract, GrFormAdd } from 'react-icons/gr';
@@ -12,7 +13,7 @@ function ItemCounter(props) {
     
     const [itemCount, setItemCount] = useState(0);      // Estado inicial del Contador
     const [itemInChart, setItemInChart] = useState(0);  
-    const [itemId, setitemId] = useState(props.item);   // Id del item que se esta mostrando
+    const [itemId] = useState(props.item);   // Id del item que se esta mostrando
 
     console.log(itemId)
     const test = useContext(CartContext);
@@ -21,6 +22,7 @@ function ItemCounter(props) {
     const Incrementar = () => {                                 // si el boton se pulsa, Incrementa el State del Contador
         if (stock > itemCount) {
             setItemCount(itemCount + 1)
+            noti()
         }
     }
     const Decrementar = () => {                                 // si el boton se pulsa, Decrementa el State del Contador
@@ -29,21 +31,38 @@ function ItemCounter(props) {
         }
     }
     const Vaciar = () => { setItemCount(0) }                      // si el boton se pulsa, vuelve a 0 el State del Contador
-
+    const noti = () => toast.success('😄 Se agregó un producto!!!', {
+        position: "top-left",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: 0,
+        });
     const AgregarAlCarrito = () => {                            //  Con un Switch muestro un Mje al usuario para hacerle saber cuantos items agrego al carrito           
         
 
         switch (itemCount) {
             case 0:
-                alert("Seleccione la Cantidad de Productos que Quiere Agregar al Carrito")
+                swal("Error al agregar! ⛔️", "Seleccione los Productos que quiere agregar al carrito")
                 break;
             case 1:
-                alert("Se Agrego " + itemCount + " Producto al Carrito")
+                swal({
+                    title: "Producto agregado con éxito",
+                    text: "Clickea abajo para ir al carrito",
+                    icon: "success",
+                    button: "OK" ,
+                  })
                 setItemInChart(itemCount);
                 test.addToCart(itemId,itemCount);
                 break;
             default:
-                alert("Se Agregaron " + itemCount + " Productos al Carrito")
+                swal({
+                    title: "Productos agregado con éxito",
+                    text: "Clickea abajo para ir al carrito",
+                    icon: "success",
+                    button: "OK",
+                  })
                 setItemInChart(itemCount);
                 test.addToCart(itemId,itemCount);
                 break;
@@ -53,7 +72,6 @@ function ItemCounter(props) {
     return (
         itemInChart === 0                          // Operador Ternario para saber si llegan los datos y que estos aparezcan o de lo contrario se dibuje un <p>
             ?
-
             <div className="container py-3">
                 <div className="row d-flex justify-content-center">
 
