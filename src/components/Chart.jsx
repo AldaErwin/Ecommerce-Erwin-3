@@ -102,7 +102,8 @@ function Chart() {
                         </div>
                     </div>
                 </div>    
-                <h2 ><b>Ultima orden: {OrdenesHisto}</b></h2>
+                <h2 ><b>Ultima orden:</b></h2>
+                <h2 ><b>ID: {OrdenesHisto}</b></h2>
                 </>
             :
             <>
