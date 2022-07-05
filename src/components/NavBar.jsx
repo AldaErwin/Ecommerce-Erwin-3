@@ -21,11 +21,11 @@ function NavBar() {
                         </NavDropdown>
 
                         <NavDropdown title="ANDROID" id="collasible-nav-dropdown">
-                            <NavDropdown.Item  as={Link} to={"android/brand/Samsung"}>Samsung</NavDropdown.Item>
-                            <NavDropdown.Item  as={Link} to={"android/brand/Xiaomi"}>Xiaomi</NavDropdown.Item>
-                            <NavDropdown.Item  as={Link} to={"android/brand/Google"}>Google</NavDropdown.Item>
-                            <NavDropdown.Item  as={Link} to={"android/brand/Huawei"}>Huawei</NavDropdown.Item>
-                            <NavDropdown.Item  as={Link} to={"android/brand/Sony"}>Sony</NavDropdown.Item>
+                            <NavDropdown.Item  as={Link} to={"android/Model/Samsung"}>Samsung</NavDropdown.Item>
+                            <NavDropdown.Item  as={Link} to={"android/Model/Xiaomi"}>Xiaomi</NavDropdown.Item>
+                            <NavDropdown.Item  as={Link} to={"android/Model/Google"}>Google</NavDropdown.Item>
+                            <NavDropdown.Item  as={Link} to={"android/Model/Huawei"}>Huawei</NavDropdown.Item>
+                            <NavDropdown.Item  as={Link} to={"android/Model/Sony"}>Sony</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Nav>

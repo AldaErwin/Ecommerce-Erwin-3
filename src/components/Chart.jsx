@@ -1,19 +1,41 @@
-import { React, useContext } from 'react'
-import { Figure } from 'react-bootstrap';
+import { React, useContext, useState } from 'react'
+import { Figure, Row, Col } from 'react-bootstrap';
 import { CartContext } from '../context/CartContext';
 import { GoTrashcan } from 'react-icons/go'
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 
 
 
 function Chart() {
     const test = useContext(CartContext);
-    
-    function QuitarItem(id){
-        const quitarPorId = test.cartList.find(modelId => modelId.item === id) 
+    const {quitarItem, precioTotal} = useContext(CartContext);
+    const [OrdenesHisto,setOrdenesHisto] = useState([]);
 
-        test.cartList.splice(test.cartList.indexOf(quitarPorId),1)   // El Metodo splice me deja borrar el un objeto sabiendo su index en el array y tambien recibe el segundo parametro en este caso "1" para borrar solo ese onjeto
+    function generarOrden(e){
+        e.preventDefault()
+        let orden= {}
+
+        orden.buyer = {name: 'Erwin', email:'E@gmail.com', phone:'123456789'}
+        orden.total = precioTotal()
+        orden.items = test.cartList.map(itemInCart => {
+            const id = itemInCart.id
+            const nombre = itemInCart.iPhoneModel
+            const precio = itemInCart.price*itemInCart.cantItem
+            const cantidad = itemInCart.cantItem
+
+            return {id, nombre, precio, cantidad}
+        })
+
+        const db = getFirestore()
+        const orderCollection = collection(db, 'Ordenes')
+        addDoc(orderCollection, orden)
+        .then(resp => setOrdenesHisto(resp.id))
+
     }
+    
+    
+   
     
     return (
         test.cartList.length > 0       // Operador Ternario para saber si llegan los datos y que estos aparezcan o de lo contrario se dibuje un <p>
@@ -25,7 +47,7 @@ function Chart() {
                         <div className='table-wrapper'>
                             <div className='table-title container align-items-center text-center'>
                                 <div className='row'>
-                                    <div className='col-sm'>
+                                    <div className='col-x-sm'>
                                         <h2><b>Carrito</b></h2>
                                     </div>
                                 </div>
@@ -50,26 +72,37 @@ function Chart() {
                                             <Figure.Image
                                                 width={100}
                                                 height={120}
-                                                alt={item.name}
+                                                alt={item.iPhoneModel}
                                                 src={item.image} 
                                             />
                                         </Figure>
                                         </th>
-                                        <td className=''>{item.name}</td>
+                                        <td className=''>{item.iPhoneModel}</td>
                                         <td className=''>{item.color}</td>
                                         <td className=''>{item.cantItem}</td>
-                                        <td className=''>{'$'}{item.price * item.cantItem}</td>
+                                        <td className=''>{'$'}{item.price*item.cantItem}</td>
                                         <td> 
-                                            <button onClick={() => QuitarItem(item.id)} className='btn text-danger' id='basura'><GoTrashcan size={"1.7em"}/></button>
+                                            <button onClick={() => quitarItem(item)} className='btn text-danger' id='basura'><GoTrashcan size={"1.7em"}/></button>
                                         </td>
                                     </tr>
                                     )
                                 }
                             </tbody>
+                                <tfoot>
+                                        <tr>
+                                            <th className=''></th>
+                                            <th className=''></th>
+                                            <th className=''></th>
+                                            <th className=''>Total: </th>
+                                            <th className=''> {'$'}{precioTotal()}</th>
+                                            <th className=''><button onClick={generarOrden} className='btn border btn-primary'> Comprar</button></th>
+                                        </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
                 </div>    
+                <h2 ><b>Ultima orden: {OrdenesHisto}</b></h2>
                 </>
             :
             <>

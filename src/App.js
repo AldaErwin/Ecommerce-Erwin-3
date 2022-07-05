@@ -28,7 +28,7 @@ function App() {
                         <Route path="/" element = {<CardContainer products={data} />}/>
                         <Route path="/iPhone/Model/" element = {<CardContainer products={data} />}/>
                         <Route path="/iPhone/Model/:nroModeloiPhone" element = {<CardContainer products={data} />}/>
-                        <Route path="/iPhone/Model/:nroModeloiPhone/:nroIdiPhone/Detail" element = {<ItemDetailContainer phoneModel={data}/>}/>
+                        <Route path="/iPhone/Model/:nroModeloiPhone/:id/Detail" element = {<ItemDetailContainer phoneModel={data}/>}/>
                         <Route path="/Chart" element = {<Chart/>}/>
                     </Routes> 
             </BrowserRouter>
