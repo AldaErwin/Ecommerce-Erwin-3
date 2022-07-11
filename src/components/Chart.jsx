@@ -1,5 +1,5 @@
 import { React, useContext, useState } from 'react'
-import { Figure, Row, Col } from 'react-bootstrap';
+import { Figure} from 'react-bootstrap';
 import { CartContext } from '../context/CartContext';
 import { GoTrashcan } from 'react-icons/go'
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
@@ -11,6 +11,7 @@ function Chart() {
     const test = useContext(CartContext);
     const {quitarItem, precioTotal} = useContext(CartContext);
     const [OrdenesHisto,setOrdenesHisto] = useState([]);
+    console.log(test.cartList)
 
     function generarOrden(e){
         e.preventDefault()
@@ -54,14 +55,14 @@ function Chart() {
                             </div>
                             <table className='table table-striped table-hover align-items-center text-center'>
                             <thead>
-                            <tr>
-                                <th className=''>Imágen</th>
-                                <th className=''>Nombre</th>
-                                <th className=''>Color</th>
-                                <th className=''>cantidad</th>
-                                <th className=''>Subtotal</th>
-                                <th className=''>Acción</th>
-                            </tr>
+                                <tr>
+                                    <th className=''>Imágen</th>
+                                    <th className=''>Nombre</th>
+                                    <th className=''>Color</th>
+                                    <th className=''>cantidad</th>
+                                    <th className=''>Subtotal</th>
+                                    <th className=''>Acción</th>
+                                </tr>
                             </thead>
                             <tbody className='align-items-center text-center'>
                                 {

@@ -10,6 +10,7 @@ import Cards from './Cards'
 function CardContainer() {
     const {nroModeloiPhone} = useParams("");  
     const [productos,setProductos] = useState([]);
+    console.log(productos)
     
     /* useEffect(() => {
         

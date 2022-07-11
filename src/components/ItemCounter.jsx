@@ -15,7 +15,6 @@ function ItemCounter(props) {
     const [itemInChart, setItemInChart] = useState(0);  
     const [itemId] = useState(props.item);   // Id del item que se esta mostrando
     const test = useContext(CartContext);
-    const {quitarItem} = useContext(CartContext);
 
     let stock = 10
     const Incrementar = () => {                                 // si el boton se pulsa, Incrementa el State del Contador

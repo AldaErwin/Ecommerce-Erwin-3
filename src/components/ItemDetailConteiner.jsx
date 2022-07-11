@@ -9,15 +9,16 @@ import ItemCounter from './ItemCounter';
 function ItemDetailContainer() {
     const {id} = useParams(); // Obtengo el Id que se lee desde el Link de RouterDom, al la hora de hacer click en el componente Card
     const [producto, setProducto] = useState({})
+    console.log([producto])
 
     useEffect(() => {
         const db = getFirestore()
         const queryItem = doc(db, 'Productos', id) 
         getDoc(queryItem) // promesa
-        .then(resp => setProducto(  {id: resp.id, ...resp.data()}  ))
-    }, [])
+        .then((resp) => setProducto(  {id: resp.id, ...resp.data()}  ))
+        /* .then( resp => setProducto( resp.doc.map( item => ( { id: item.id, ...item.data() } )  ) ) ) */
+    }, []);
 
-    
     return (
         <div className="container">
             <div className="row -d flex align-items-center text-center">
@@ -28,9 +29,7 @@ function ItemDetailContainer() {
                     El Apple iPhone 13 Pro llega manteniendo el diseño de su predecesor. Con una pantalla OLED de 6.1 pulgadas con tasa de refresco variable de hasta 120Hz, el iPhone 13 Pro cuenta con el procesador A15 Bionic con opciones de 128GB, 256GB, 512GB, y 1TB.
                     </p>
                     <h3>Stock: {(producto.stock)}</h3>
-                    <ItemCounter
-                    item={producto}
-                    />
+                    <ItemCounter item={producto}  />
                 </div>
             </div>
         </div>
